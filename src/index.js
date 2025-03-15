@@ -16,13 +16,13 @@ connectDB()
 
 .catch((error) => {
     console.error(`MONGODB connection failed: ${error}`);
-    // process.exit(1);  // Exit the process on failure
+    process.exit(1);  // Exit the process on failure
 });
 
-app.use((req, res, next) => {
-    console.log(`Received request: ${req.method} ${req.url}`);
-    next();
-});
+// app.use((req, res, next) => {
+//     console.log(`Received request: ${req.method} ${req.url}`);
+//     next();
+// });
 
 
 // app.post('/api/v1/users/newregister', (req, res) => {

@@ -7,12 +7,13 @@ import {uploadOnCloudinary} from "../utils/cloudinary.js"
 
 // Register User Controller
 export const registerUser = asyncHandler(async (req, res) => {
+
     // console.log('Received request to register user');
     // // Your logic for registering a user goes here
     // return  res.status(200).json({
     //     message: "ok"
     // });
-
+    
     const {username, fullName, password, email} = req.body;
     console.log("email" , email);
     console.log("password" , password)
@@ -56,7 +57,6 @@ export const registerUser = asyncHandler(async (req, res) => {
 
     const avatar = await uploadOnCloudinary(avatarFile.path);
     const coverImage = coverImageFile ? await uploadOnCloudinary(coverImageFile.path) : null;
-
     if (!avatar) {
         throw new ApiError(500, "Failed to upload avatar to Cloudinary");
     }
